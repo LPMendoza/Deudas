@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5 m10 l5">
+      <div class="card">
+        <div class="card-content">
+          <form #frmLogin="ngForm" (ngSubmit)="onLogin(frmLogin)">
+            <h4>Datos</h4>
+            <input type="hidden" name="id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="telefono" placeholder="Ingrese su teléfono" ngModel required>
+              </div>
+              <div class="input-field col s12">
+                <input type="password" name="pass" placeholder="Ingrese su contraseña" ngModel required>
+              </div>
+              <div class="card-action">
+                <div class="input-field col s12">
+
+                  <button class="btn right red darken-1  waves-effect" (click)="onLogin">Entrar</button>
+
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+

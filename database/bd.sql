@@ -36,18 +36,29 @@ CREATE TABLE IF NOT EXISTS deudas(
    FOREIGN KEY(id_deudor) REFERENCES deudores(telefono)
 );
 
+CREATE TABLE IF NOT EXISTS pseudo_deudas(
+   referencia INT AUTO_INCREMENT,
+   concepto VARCHAR(15),
+   id_deudor VARCHAR(10),
+   PRIMARY KEY (referencia),
+   FOREIGN KEY(concepto) REFERENCES conceptos(concepto),
+   FOREIGN KEY(id_deudor) REFERENCES deudores(telefono)
+);
+
 CREATE TABLE IF NOT EXISTS pagos(
    referencia INT AUTO_INCREMENT,
    id_administrador VARCHAR(10),
    id_deudor VARCHAR(10),
    referencia_deuda INT,
    monto DOUBLE,
-   fecha DATE,
+   fecha DATETIME,
    PRIMARY KEY (referencia),
    FOREIGN KEY(id_deudor) REFERENCES deudores(telefono),
-   FOREIGN KEY(id_administrador) REFERENCES administradores(telefono),
-   FOREIGN KEY(referencia_deuda) REFERENCES deudas(referencia)
+   FOREIGN KEY(id_administrador) REFERENCES administradores(telefono)
 );
 
 INSERT INTO administradores (nombre,telefono, pass) 
 	VALUES ('El del Varo','1234554321','qweRty789');
+
+#agregar procedures
+#agregar trigger

@@ -25,10 +25,17 @@ INSERT INTO conceptos(concepto, id_administrador, monto) VALUES('prestamo-50', '
 INSERT INTO conceptos(concepto, id_administrador, monto) VALUES('prestamo-51', '1234554321',550);
 #SELECT * FROM conceptos;
 #--
-# TABLA: deudas
+# TABLA: pseudo_deudas
 # CAMPOS: concepto , id_deudor
-INSERT INTO deudas(concepto , id_deudor, debe) VALUES('prestamo-50', '1237013598',46);
-INSERT INTO deudas(concepto , id_deudor, debe) VALUES('prestamo-50', '2364126196',46);
-INSERT INTO deudas(concepto , id_deudor, debe) VALUES('prestamo-51', '2364126196',46);
-INSERT INTO deudas(concepto , id_deudor, debe) VALUES('prestamo-51', '4628242298',46);
-#SELECT * FROM deudas;
+INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-50', '1237013598');
+INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-50', '2364126196');
+INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-51', '2364126196');
+INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-51', '4628242298');
+
+SELECT * FROM deudas;
+#--
+# TABLA: pagos
+# CAMPOS: referencia ,id_administrador ,id_deudor,, referencia_deuda, monto, fecha
+INSERT INTO pagos(id_administrador ,id_deudor, referencia_deuda, monto, fecha) 
+	VALUES('1234554321', '1237013598', 1, 450,now());
+    SELECT * FROM pagos;

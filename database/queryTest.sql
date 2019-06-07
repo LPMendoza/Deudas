@@ -31,7 +31,6 @@ INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-50', '123701359
 INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-50', '2364126196');
 INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-51', '2364126196');
 INSERT INTO pseudo_deudas(concepto , id_deudor) VALUES('prestamo-51', '4628242298');
-
 SELECT * FROM deudas;
 #--
 # TABLA: pagos

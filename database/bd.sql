@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS deudores(
    pass VARCHAR(20) NOT NULL,
    nombre VARCHAR(30) NOT NULL,
    adeudo DOUBLE,
+   mail VARCHAR(30),
    PRIMARY KEY (telefono)
 );
 

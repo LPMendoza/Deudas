@@ -1,0 +1,18 @@
+agregar deudores:
+	telefono, varchar(10)
+	contraseña, varchar(20)
+	nombre, varchar(30)
+	email, varchar(30)
+
+agregar concepto:
+	concepto, varchar(15),
+	monto, DOUBLE
+
+agregar deudas:
+	concepto, varchar(15),
+	id_deudor, varchar(10, numero de telefono), PASAR ARRAY DE id de deudores
+
+agregar pagos:
+	id_deudor, varchar(10, numero de telefono)
+	referencia INT,
+	monto DOUBLE,

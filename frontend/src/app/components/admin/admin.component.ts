@@ -18,38 +18,51 @@ export class AdminComponent implements OnInit {
     telefono: '',
     pass: '',
     nombre: '',
+    mail: '',
     adeudo: 0,
-    email: ''
 
   }
 
-  constructor(private adminServie: AdminService, private router: Router) { }
+  deudores: any = [];
+
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
     if(localStorage.getItem("KEY_ACCESS") == '') {
       this.router.navigateByUrl('/login');
     }
+    this.getDeudores();
   }
 
   getDeudores(){
+    this.adminService.getDeudores().subscribe(
+      res => {
+        this.deudores = res;
+        console.log(res);
+      }
+    )
   }
 
-  createDeudor(): void {
+  saveDeudor(form: NgForm) {
     
-    if(this.deudor.nombre != '' ||  this.deudor.telefono != '' 
-    || this.deudor.pass != '' || this.deudor.adeudo != 0) {
-      
-      if(this.deudor.telefono.toString().length != 10 ) {
-        M.toast({html: 'Teléfono inválido'});
-      }      
-      else {
-        console.log(this.deudor);
-        M.toast({html: 'Deudor Registrado'});
-      }
+    if(this.deudor.telefono.toString() == '' ||
+    this.deudor.pass == '' || this.deudor.nombre == '' || this.deudor.mail == '' || 
+    this.deudor.telefono.toString().length > 10) {
+        
+      M.toast({html: 'Campos incorrectos'});
+
     }
     else {
-      M.toast({html: 'Hay campos en blanco'});
+        this.adminService.createDeudor(this.deudor).subscribe(
+          res => {
+            M.toast({html: 'Deudor registrado'});
+            this.getDeudores();
+            this.cleanForm(form);
+          },
+          err => console.error(err)
+        )
     }
+
   }
 
   cleanForm(form: NgForm): void {

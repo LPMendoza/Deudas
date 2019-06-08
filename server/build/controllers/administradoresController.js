@@ -12,12 +12,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class IndexController {
+class AdministradoresController {
     getAdministradores(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const administradores = yield database_1.default.query('SELECT * FROM administradores');
             res.json(administradores);
         });
     }
+    getDeudores(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const deudores = yield database_1.default.query('SELECT * FROM deudores');
+            res.json(deudores);
+        });
+    }
+    createDeudor(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield database_1.default.query('INSERT INTO deudores set ?', [req.body]);
+            res.json({ message: 'Deudor guardado' });
+        });
+    }
 }
-exports.indexController = new IndexController();
+exports.administradoresController = new AdministradoresController();

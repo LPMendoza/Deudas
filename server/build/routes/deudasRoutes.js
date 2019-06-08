@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const gamesController_1 = require("../controllers/gamesController");
+const deudoresController_1 = require("../controllers/deudoresController");
 class GamesRoutes {
     constructor() {
         this.router = express_1.Router();
         this.config();
     }
     config() {
-        this.router.get('/', gamesController_1.gamesController.getDeudores);
+        this.router.get('/', deudoresController_1.deudoresController.getDeudores);
     }
 }
 const gamesRoutes = new GamesRoutes();

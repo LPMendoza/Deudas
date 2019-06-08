@@ -15,7 +15,7 @@ export class LoginService {
   }
 
   checkAdmin() {
-    return this.http.get(`${this.URI_API}/admins`);
+    return this.http.get(`${this.URI_API}/admin`);
   }
   checkDeudor() {
     return this.http.get(`${this.URI_API}/deudas`);

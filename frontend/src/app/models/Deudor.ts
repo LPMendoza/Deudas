@@ -1,7 +1,7 @@
 export interface Deudor {
-   telefono: string,
+   telefono: number,
    pass: string,
    nombre: string,
-   email: string,
-   adeudo: number,
+   mail: string,
+   adeudo: number
 }

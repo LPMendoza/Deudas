@@ -22,7 +22,7 @@ class Server {
         this.app.use(express_1.default.urlencoded({ extended: false }));
     }
     routes() {
-        this.app.use('/api/admins', adminsRoutes_1.default);
+        this.app.use('/api/admin', adminsRoutes_1.default);
         this.app.use('/api/deudas', deudasRoutes_1.default);
     }
     start() {

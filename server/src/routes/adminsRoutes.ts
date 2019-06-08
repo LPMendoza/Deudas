@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {indexController} from'../controllers/indexController';
+import {administradoresController} from'../controllers/administradoresController';
 
 class IndexRoutes {
 
@@ -10,7 +10,9 @@ class IndexRoutes {
    }
 
    config(): void {
-      this.router.get('/', indexController.getAdministradores);
+      this.router.get('/', administradoresController.getAdministradores);
+      this.router.get('/deudores', administradoresController.getDeudores);
+      this.router.post('/deudores', administradoresController.createDeudor);
    }
 
 }

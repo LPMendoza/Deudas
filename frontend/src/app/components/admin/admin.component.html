@@ -3,7 +3,7 @@
       <div class="col s10 m10 l5 ">
         <div class="card">
           <div class="card-content">
-            <form  #frmLogin="ngForm" class="login-container" (ngSubmit)="createDeudor()">
+            <form  #frmAdmin="ngForm" class="login-container" (ngSubmit)="saveDeudor(frmAdmin)">
               <h4>Agregar Deudor</h4>
               <div class="row">
                 <div class="input-field col s12 l11" style="margin-top: 30px !important;">
@@ -23,14 +23,14 @@
                 </div>
                 <div class="input-field col s12 l11">
                     <i class="material-icons prefix">email</i>
-                   <input type="text" maxlength="30" class="validate" id="email" name="email" [(ngModel)]="deudor.email">
+                   <input type="text" maxlength="30" class="validate" id="email" name="email" [(ngModel)]="deudor.mail">
                    <label for="pass">Email</label>
                  </div>
                 <div class="card-action">
                   <div class="input-field col s12">
   
                     <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Registrar<i class="material-icons right">send</i></button>
-                    <button class="btn right yellow darken-2 waves-effect" (click)="cleanForm(frmLogin)" type="submit">Limpiar<i class="material-icons right">refresh</i></button>
+                    <button class="btn right yellow darken-2 waves-effect" type="submit" (click)="cleanForm(frmAdmin)">Limpiar<i class="material-icons right">refresh</i></button>
   
                   </div>
                 </div>
@@ -40,40 +40,25 @@
         </div>
         
       </div>
-      <table class="col l7 responsive-table centered white striped" style="margin-left: 0px;">
+      <table class="col l7 responsive-table centered white" style="margin-left: 0px;">
           <thead>
             <tr>
-                <th>Seleccionar</th>
                 <th>Teléfono</th>
                 <th>Nombre</th>
                 <th>Email</th>
+                <th>Deuda</th>
             </tr>
           </thead>
   
-          <tbody>
+          <tbody *ngFor="let d of deudores">
             <tr>
-              <td>
-                  <label>
-                    <input type="checkbox" />
-                    <span></span>
-                  </label>
-              </td>
-              <td>3121540822</td>
-              <td>Pedro Mendoza</td>
-              <td>luispedro_mendoza@ucol.mx</td>
+              <td>{{d.telefono}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.mail}}</td>
+              <td>{{d.adeudo}}</td>
             </tr>
-            <tr>
-                <td>
-                    <label>
-                      <input type="checkbox" />
-                      <span></span>
-                    </label>
-                </td>
-                <td>3121540677</td>
-                <td>Fernando Madrigal</td>
-                <td>fernando_madrigal@ucol.mx</td>
-              </tr>
           </tbody>
+
         </table>         
     </div>
   </div>

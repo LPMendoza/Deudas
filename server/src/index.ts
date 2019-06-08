@@ -24,7 +24,7 @@ class Server {
    }
 
    routes(): void {
-      this.app.use('/api/admins', adminsRoutes);
+      this.app.use('/api/admin', adminsRoutes);
       this.app.use('/api/deudas', deudasRoutes);
    }
 

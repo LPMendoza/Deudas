@@ -2,7 +2,7 @@ import {Request, Response} from 'express';
 
 import pool from '../database';
 
-class GamesController {
+class DeudoresController {
    
    public async getDeudores(req: Request, res: Response) {
 
@@ -13,4 +13,4 @@ class GamesController {
 
 }
 
-export const gamesController = new GamesController();
+export const deudoresController = new DeudoresController();

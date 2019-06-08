@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {gamesController} from '../controllers/gamesController';
+import {deudoresController} from '../controllers/deudoresController';
 
 class GamesRoutes {
 
@@ -10,7 +10,7 @@ class GamesRoutes {
    }
 
    config(): void {
-      this.router.get('/', gamesController.getDeudores);
+      this.router.get('/', deudoresController.getDeudores);
    }
 
 }

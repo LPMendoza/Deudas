@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+      <div class="col s10 m10 l5 ">
+        <div class="card">
+          <div class="card-content">
+            <form  #frmLogin="ngForm" class="login-container">
+              <h4>Agregar Deuda</h4>
+              <div class="row">
+                <div class="input-field col s12 m6 l11">
+                  <select class="browser-default" style="outline: none;"> 
+                    <option value="" disabled selected> Elige el concepto </option>
+                    <option value="">example 1</option>
+                    <option value="" >example 2</option>
+                    <option value="">example 3</option>
+                  </select>
+                </div>
+                <div class="card-action">
+                  <div class="input-field col s12">
+  
+                    <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Registrar<i class="material-icons right">send</i></button>
+                    <button class="btn right yellow darken-2 waves-effect" (onClick)="cleanForm(ngForm)" type="submit">Limpiar<i class="material-icons right">refresh</i></button>
+  
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+      </div>
+      <table class="col l5 responsive-table centered white striped" style="margin-left: 10px;">
+          <thead>
+            <tr>
+                <th>Seleccionar</th>
+                <th>Teléfono</th>
+                <th>Nombre</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>
+                  <label>
+                    <input type="checkbox" />
+                    <span></span>
+                  </label>
+              </td>
+              <td>3121540822</td>
+              <td>Pedro Mendoza</td>
+            </tr>
+          </tbody>
+        </table>         
+    </div>
+  </div>

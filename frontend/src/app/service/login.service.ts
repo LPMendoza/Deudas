@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, APP_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Admin } from '../models/Admin';
 import { Deudor } from '../models/Deudor';
@@ -8,13 +8,16 @@ import { Deudor } from '../models/Deudor';
 })
 export class LoginService {
 
-  private URI_API = 'http://localhost:300/api';
+  private URI_API = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {
 
   }
 
-  checkUser(user): void {
-    this.http.get(`${this.URI_API}/admin`);
+  checkAdmin() {
+    return this.http.get(`${this.URI_API}/admins`);
+  }
+  checkDeudor() {
+    return this.http.get(`${this.URI_API}/deudas`);
   }
 }

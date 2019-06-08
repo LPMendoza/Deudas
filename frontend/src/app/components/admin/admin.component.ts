@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Deudor } from 'src/app/models/Deudor';
 import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 declare var M: any;
 
@@ -17,7 +18,8 @@ export class AdminComponent implements OnInit {
     telefono: '',
     pass: '',
     nombre: '',
-    adeudo: 0
+    adeudo: 0,
+    email: ''
 
   }
 
@@ -32,14 +34,27 @@ export class AdminComponent implements OnInit {
   getDeudores(){
   }
 
-  createDeudor() {
-    if(this.deudor.telefono.toString().length != 10 ) {
-      M.toast({html: 'Teléfono inválido'});
+  createDeudor(): void {
+    
+    if(this.deudor.nombre != '' ||  this.deudor.telefono != '' 
+    || this.deudor.pass != '' || this.deudor.adeudo != 0) {
+      
+      if(this.deudor.telefono.toString().length != 10 ) {
+        M.toast({html: 'Teléfono inválido'});
+      }      
+      else {
+        console.log(this.deudor);
+        M.toast({html: 'Deudor Registrado'});
+      }
     }
     else {
-      console.log(this.deudor);
-      M.toast({html: 'Deudor Registrado'});
+      M.toast({html: 'Hay campos en blanco'});
     }
+  }
+
+  cleanForm(form: NgForm): void {
+
+    form.reset();
   }
 
 }

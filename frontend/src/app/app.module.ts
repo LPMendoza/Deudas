@@ -9,6 +9,7 @@ import { DeudoresComponent } from './components/deudores/deudores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgForm, FormsModule} from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
+import { DeudasComponent } from './components/deudas/deudas.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginComponent,
     NavbarComponent,
     DeudoresComponent,
-    AdminComponent
+    AdminComponent,
+    DeudasComponent
   ],
   imports: [
     BrowserModule,

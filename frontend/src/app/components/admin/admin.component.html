@@ -13,23 +13,24 @@
                 </div>
                 <div class="input-field col s12 l11">
                     <i class="material-icons prefix">person</i>
-                   <input type="text" maxlength="30" class="validate" id="name" name="name" [(ngModel)]="deudor.name">
-                   <label for="name">Nombre</label>
+                   <input type="text" maxlength="30" class="validate" id="nombre" name="nombre" [(ngModel)]="deudor.nombre">
+                   <label for="nombre">Nombre</label>
                 </div>
                 <div class="input-field col s12 l11">
                    <i class="material-icons prefix">security</i>
-                  <input type="password" maxlength="20" class="validate" id="pass" name="pass" [(ngModel)]="deudor.pass">
+                  <input type="password" maxlength="20" class="validate" id="concepto" name="pass" [(ngModel)]="deudor.pass">
                   <label for="pass">Contraseña</label>
-                 </div>
-                 <div class="input-field col s12 l11">
-                    <i class="material-icons prefix">attach_money</i>
-                   <input type="number" maxlength="10" class="validate" id="deuda" name="deuda" [(ngModel)]="deudor.adeudo">
-                   <label for="telefono">Deuda</label>
                 </div>
+                <div class="input-field col s12 l11">
+                    <i class="material-icons prefix">email</i>
+                   <input type="text" maxlength="30" class="validate" id="email" name="email" [(ngModel)]="deudor.email">
+                   <label for="pass">Email</label>
+                 </div>
                 <div class="card-action">
                   <div class="input-field col s12">
   
-                    <button class="btn right blue waves-effect" type="submit">Registrar<i class="material-icons right">send</i></button>
+                    <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Registrar<i class="material-icons right">send</i></button>
+                    <button class="btn right yellow darken-2 waves-effect" (click)="cleanForm(frmLogin)" type="submit">Limpiar<i class="material-icons right">refresh</i></button>
   
                   </div>
                 </div>
@@ -39,27 +40,40 @@
         </div>
         
       </div>
-      <table class="col l5 responsive-table centered white" style="margin-left: 10px;">
+      <table class="col l7 responsive-table centered white striped" style="margin-left: 0px;">
           <thead>
             <tr>
+                <th>Seleccionar</th>
                 <th>Teléfono</th>
                 <th>Nombre</th>
-                <th>Adeudo</th>
+                <th>Email</th>
             </tr>
           </thead>
   
           <tbody>
             <tr>
-              <td>asds</td>
-              <td>asds</td>
-              <td>asds</td>
+              <td>
+                  <label>
+                    <input type="checkbox" />
+                    <span></span>
+                  </label>
+              </td>
+              <td>3121540822</td>
+              <td>Pedro Mendoza</td>
+              <td>luispedro_mendoza@ucol.mx</td>
             </tr>
             <tr>
-                <td>asds</td>
-                <td>asds</td>
-                <td>asds</td>
+                <td>
+                    <label>
+                      <input type="checkbox" />
+                      <span></span>
+                    </label>
+                </td>
+                <td>3121540677</td>
+                <td>Fernando Madrigal</td>
+                <td>fernando_madrigal@ucol.mx</td>
               </tr>
           </tbody>
-        </table>
+        </table>         
     </div>
   </div>

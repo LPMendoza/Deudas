@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgForm, FormsModule} from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 import { DeudasComponent } from './components/deudas/deudas.component';
+import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
+import { PagosComponent } from './components/pagos/pagos.component';
+import { NavbarDeudorComponent } from './components/navbar-deudor/navbar-deudor.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { DeudasComponent } from './components/deudas/deudas.component';
     NavbarComponent,
     DeudoresComponent,
     AdminComponent,
-    DeudasComponent
+    DeudasComponent,
+    NavbarAdminComponent,
+    PagosComponent,
+    NavbarDeudorComponent
   ],
   imports: [
     BrowserModule,

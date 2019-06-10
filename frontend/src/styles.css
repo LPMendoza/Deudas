@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
 body {
    background: #eee;
+   font-family: 'Nunito';
+
 }
 body::-webkit-scrollbar-track {
    background: rgba(0, 0, 0, 0.5);
@@ -17,4 +21,19 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
    background: #304ffe;
+}
+
+.btn {
+   font-family: 'Nunito';  
+   font-size: 12px;
+   font-weight: bold;
+}
+
+select {
+   cursor: pointer;
+}
+
+table {
+   box-shadow: 0 1px 5px rgba(10,10,10,0.12), 0 1px 2px rgba(10,10,10,0.1);
+   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }

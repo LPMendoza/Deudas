@@ -28,26 +28,26 @@ export class AdminComponent implements OnInit {
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem("KEY_ACCESS") == '') {
+    if(localStorage.getItem("KEY_ACCESS") != '1234554321') {
       this.router.navigateByUrl('/login');
     }
-    this.getDeudores();
+    else {
+      this.getDeudores();
+    }
   }
 
   getDeudores(){
     this.adminService.getDeudores().subscribe(
       res => {
         this.deudores = res;
-        console.log(res);
       }
     )
   }
 
   saveDeudor(form: NgForm) {
     
-    if(this.deudor.telefono.toString() == '' ||
-    this.deudor.pass == '' || this.deudor.nombre == '' || this.deudor.mail == '' || 
-    this.deudor.telefono.toString().length > 10) {
+    if(this.deudor.telefono == '' || this.deudor.pass == '' 
+    || this.deudor.nombre == '' || this.deudor.mail == '') {
         
       M.toast({html: 'Campos incorrectos'});
 

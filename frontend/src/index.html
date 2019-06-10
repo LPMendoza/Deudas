@@ -15,9 +15,10 @@
         /* icon prefix focus color */
         .input-field .prefix.active {
           color: #3d5afe;
+          background-color: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
         }
              /* label focus color */
-        .input-field input[type=text]:focus + label, input[type=number]:focus + label, input[type=passwor]:focus + label {
+        .input-field input[type=text]:focus + label, input[type=number]:focus + label, input[type=password]:focus + label {
           color: #3d5afe !important;
         }
         /* label underline focus color */
@@ -28,7 +29,37 @@
         .input-field input[type=number].valid, .input-field input[type=text].valid, .input-field input[type=password].valid {
           border-bottom: 1px solid #3d5afe !important;
         }
-        </style>
+        [type="checkbox"].filled-in:checked + span:not(.lever):after {
+ 
+          top: 0;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #fbc02d  !important;
+          background-color: #fbc02d  !important;
+          z-index: 0;
+
+        }
+        [type="radio"]:checked + span:after,
+ 
+        [type="radio"].with-gap:checked + span:before,
+ 
+        [type="radio"].with-gap:checked + span:after {
+ 
+          border: 2px solid #fbc02d;
+ 
+        }
+ 
+ 
+ 
+        [type="radio"]:checked + span:after,
+ 
+        [type="radio"].with-gap:checked + span:after {
+ 
+          background-color: #fbc02d;
+ 
+        }
+ 
+    </style>
   <app-root></app-root>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

@@ -1,24 +1,31 @@
+<app-navbar-admin></app-navbar-admin>
+
 <div class="container">
     <div class="row">
       <div class="col s10 m10 l5 ">
         <div class="card">
           <div class="card-content">
-            <form  #frmLogin="ngForm" class="login-container">
-              <h4>Agregar Deuda</h4>
+            <form  #frmDeuda="ngForm" class="login-container"(ngSubmit)="saveDeuda()" >
+              <h4 class="center-align">Agregar Adeudo</h4>
               <div class="row">
                 <div class="input-field col s12 m6 l11">
-                  <select class="browser-default" style="outline: none;"> 
-                    <option value="" disabled selected> Elige el concepto </option>
-                    <option value="">example 1</option>
-                    <option value="" >example 2</option>
-                    <option value="">example 3</option>
+                  <p>Concepto</p>
+                  <select [(ngModel)]="deuda.concepto"  name="concepto" class="browser-default" style="outline: none;" >
+                    <option *ngFor="let concepto of conceptos" [value]="concepto.nombre" >{{concepto.nombre}}</option>
                   </select>
                 </div>
+
+                <div class="input-field col s12 m6 l11"  style="margin-bottom: 50px !important;">
+                  <label>
+                    <input type="checkbox" class="filled-in" id="ckbAll" (click)="checkAll()"/>
+                    <span>Seleccionar a todos</span>
+                  </label>
+                </div>
+
                 <div class="card-action">
                   <div class="input-field col s12">
   
-                    <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Registrar<i class="material-icons right">send</i></button>
-                    <button class="btn right yellow darken-2 waves-effect" (onClick)="cleanForm(ngForm)" type="submit">Limpiar<i class="material-icons right">refresh</i></button>
+                    <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Agregar<i class="material-icons right">send</i></button>
   
                   </div>
                 </div>
@@ -26,27 +33,61 @@
             </form>
           </div>
         </div>
+        <div class="card">
+          <div class="card-content">
+            <form  #frmPagar="ngForm" class="login-container" (ngSubmit)="addPago()">
+                <h4 class="center-align">Pagar</h4>
+                <div class="row">
+                  <div class="input-field col s12 m6 l11">
+                    <p>Concepto</p>
+                    <select [(ngModel)]="pago.referencia_deuda"  name="concepto" class="browser-default" style="outline: none;" >
+                      <option *ngFor="let concepto of conceptos" [value]="concepto.nombre">{{concepto.nombre}}</option>
+                    </select>
+                  </div>
+                  <div class="input-field col s12 l11" style="margin-top: 30px !important;">
+                    <i class="material-icons prefix">phone</i>
+                   <input type="text" maxlength="10" class="validate" id="telefono" name="telefono" [(ngModel)]="pago.id_deudor">
+                   <label for="telefono">Teléfono</label>
+                 </div>
+                  <div class="input-field col s12 l11" style="margin-top: 30px !important;">
+                      <i class="material-icons prefix">attach_money</i>
+                     <input type="number" maxlength="10" class="validate" id="monto" name="monto" [(ngModel)]="pago.monto">
+                     <label for="monto">Monto</label>
+                   </div>
+                  <div class="card-action">
+                    <div class="input-field col s12">
+    
+                      <button class="btn right yellow darken-2 waves-effect" type="submit"  style="margin-left: 5px;">Pagar<i class="material-icons right">attach_money</i></button>
+    
+                    </div>
+                  </div>
+                </div>
+              </form>
+         </div>
+        </div>
         
       </div>
-      <table class="col l5 responsive-table centered white striped" style="margin-left: 10px;">
+      <table class="col l5 responsive-table centered white" style="margin-left: 10px;">
           <thead>
             <tr>
                 <th>Seleccionar</th>
                 <th>Teléfono</th>
                 <th>Nombre</th>
+                <th>Adeudo</th>
             </tr>
           </thead>
   
-          <tbody>
+          <tbody *ngFor="let d of deudores">
             <tr>
               <td>
-                  <label>
-                    <input type="checkbox" />
-                    <span></span>
-                  </label>
+                <label>
+                  <input type="checkbox" [attr.id]="d.telefono" ng-model="selected" class="filled-in" ng-checked="selectAll"  (click)="setTelefono(d.telefono)"/>
+                  <span></span>
+                </label>
               </td>
-              <td>3121540822</td>
-              <td>Pedro Mendoza</td>
+              <td>{{d.telefono}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.adeudo}}</td>
             </tr>
           </tbody>
         </table>         

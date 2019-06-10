@@ -1,14 +1,15 @@
+<app-navbar-admin></app-navbar-admin>
 <div class="container">
     <div class="row">
       <div class="col s10 m10 l5 ">
         <div class="card">
           <div class="card-content">
             <form  #frmAdmin="ngForm" class="login-container" (ngSubmit)="saveDeudor(frmAdmin)">
-              <h4>Agregar Deudor</h4>
+              <h4 class="center-align">Agregar Deudor</h4>
               <div class="row">
                 <div class="input-field col s12 l11" style="margin-top: 30px !important;">
                    <i class="material-icons prefix">phone</i>
-                  <input type="number" maxlength="10" class="validate" id="telefono" name="telefono" [(ngModel)]="deudor.telefono">
+                  <input type="text" maxlength="10" class="validate" id="telefono" name="telefono" [(ngModel)]="deudor.telefono">
                   <label for="telefono">Teléfono</label>
                 </div>
                 <div class="input-field col s12 l11">
@@ -18,13 +19,13 @@
                 </div>
                 <div class="input-field col s12 l11">
                    <i class="material-icons prefix">security</i>
-                  <input type="password" maxlength="20" class="validate" id="concepto" name="pass" [(ngModel)]="deudor.pass">
+                  <input type="password" maxlength="20" class="validate" id="pass" name="pass" [(ngModel)]="deudor.pass">
                   <label for="pass">Contraseña</label>
                 </div>
                 <div class="input-field col s12 l11">
                     <i class="material-icons prefix">email</i>
                    <input type="text" maxlength="30" class="validate" id="email" name="email" [(ngModel)]="deudor.mail">
-                   <label for="pass">Email</label>
+                   <label for="email">Email</label>
                  </div>
                 <div class="card-action">
                   <div class="input-field col s12">

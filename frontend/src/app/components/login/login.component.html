@@ -1,14 +1,16 @@
+<app-navbar></app-navbar>
+
 <div class="container">
    <div class="row">
      <div class="col s10 m10 l5">
        <div class="card">
          <div class="card-content">
            <form  #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin()">
-              <h4>Login</h4>
+              <h4 class="center-align">Login</h4>
              <div class="row">
                <div class="input-field col s12 l11" style="margin-top: 30px !important;">
                   <i class="material-icons prefix">phone</i>
-                 <input type="number" ng-max-lenght="10" class="validate" id="telefono" name="telefono" [(ngModel)]="user.telefono">
+                 <input type="text" maxlength="10" class="validate" id="telefono" name="telefono" [(ngModel)]="user.telefono">
                  <label for="telefono">Teléfono</label>
                 </div>
                   <div class="input-field col s12 l11">

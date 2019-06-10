@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DeudoresComponent } from './components/deudores/deudores.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DeudasComponent } from './components/deudas/deudas.component';
+import { PagosComponent } from './components/pagos/pagos.component';
  
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'admin/deudas',
     component: DeudasComponent
+  },
+  {
+    path: 'admin/pagos',
+    component: PagosComponent
   }
 ];
 

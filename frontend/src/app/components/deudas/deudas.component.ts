@@ -29,7 +29,7 @@ export class DeudasComponent implements OnInit {
 
   pago: Pago = {
     id_deudor: '',
-    referencia_deuda: '',
+    referencia_deuda: null,
     monto: null,
   }
 
@@ -99,7 +99,7 @@ export class DeudasComponent implements OnInit {
   }
 
   addPago() {
-    if(this.pago.referencia_deuda == '' || this.pago.monto == null || this.pago.monto == 0
+    if(this.pago.referencia_deuda == null || this.pago.monto == null || this.pago.monto == 0
     || this.pago.id_deudor == '' || this.pago.id_deudor.length < 10) {
 
       M.toast({html: 'Campos incorrectos'});

@@ -16,6 +16,6 @@ export class AdminService {
   }
 
   createDeudor(deudor: Deudor) {
-    return this.http.post(`${this.URI_API}/admin/deudores`, deudor);
+    return this.http.post(`${this.URI_API}/admin/deudores/`, deudor);
   }
 }

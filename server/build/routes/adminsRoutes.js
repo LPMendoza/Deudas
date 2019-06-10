@@ -9,8 +9,12 @@ class IndexRoutes {
     }
     config() {
         this.router.get('/', administradoresController_1.administradoresController.getAdministradores);
+        this.router.get('/deudas', administradoresController_1.administradoresController.getDeudas);
+        this.router.post('/deudas', administradoresController_1.administradoresController.addDeuda);
         this.router.get('/deudores', administradoresController_1.administradoresController.getDeudores);
         this.router.post('/deudores', administradoresController_1.administradoresController.createDeudor);
+        this.router.get('/conceptos/:id', administradoresController_1.administradoresController.verConceptos);
+        this.router.post('/pago/:id', administradoresController_1.administradoresController.addPago);
     }
 }
 const indexRoutes = new IndexRoutes();

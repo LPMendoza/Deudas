@@ -11,8 +11,12 @@ class IndexRoutes {
 
    config(): void {
       this.router.get('/', administradoresController.getAdministradores);
+      this.router.get('/deudas', administradoresController.getDeudas);
+      this.router.post('/deudas', administradoresController.addDeuda);
       this.router.get('/deudores', administradoresController.getDeudores);
       this.router.post('/deudores', administradoresController.createDeudor);
+      this.router.get('/conceptos/:id', administradoresController.verConceptos);
+      this.router.post('/pago/:id', administradoresController.addPago);
    }
 
 }

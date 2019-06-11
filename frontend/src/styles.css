@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 
 body {
-   background: #eee;
+   background: #eee ;
    font-family: 'Nunito';
 
 }
@@ -23,14 +23,24 @@ body::-webkit-scrollbar-thumb:hover {
    background: #304ffe;
 }
 
-.btn {
+.btn, .btn-large {
    font-family: 'Nunito';  
    font-size: 12px;
    font-weight: bold;
+   border-radius: 50px;
 }
 
 select {
    cursor: pointer;
+   border-radius: 50px;
+   box-shadow: 0 1px 5px rgba(10,10,10,0.12), 0 1px 2px rgba(10,10,10,0.1); padding: 10px; border-radius: 50px;
+   margin-top: 10px;
+   transition: 0.2s ease;
+}
+
+select:hover {
+   border-radius: 0px 0px 0px 0px;
+   transition: 0.2s ease;
 }
 
 table {

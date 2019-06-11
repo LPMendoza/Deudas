@@ -3,6 +3,7 @@ import { Deudor } from 'src/app/models/Deudor';
 import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Deuda } from 'src/app/models/Deuda';
 
 declare var M: any;
 
@@ -12,6 +13,16 @@ declare var M: any;
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  
+  deudoresArray = [];
+  encontrado = false;
+  deudores: any = [];
+  conceptos: any = [];
+
+  deuda: Deuda = {
+    concepto: '',
+    deudores: []
+  }
 
   deudor: Deudor = {
 
@@ -23,8 +34,6 @@ export class AdminComponent implements OnInit {
 
   }
 
-  deudores: any = [];
-
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
@@ -33,6 +42,96 @@ export class AdminComponent implements OnInit {
     }
     else {
       this.getDeudores();
+      this.getConceptos();
+    }
+
+    this.conceptos = []
+    
+    let ckbAll = <HTMLInputElement>document.getElementById('ckbAll');
+    ckbAll.checked = false;
+
+  }
+
+  
+  checkAll() {
+    let ckbAll = <HTMLInputElement>document.getElementById('ckbAll');
+
+    if(ckbAll.checked == false) {
+
+      this.deudoresArray = [];
+      for(let i = 0; i < this.deudores.length; i++) {
+        this.deudoresArray.splice(i, 1);
+        let ckbD = <HTMLInputElement>document.getElementById(`${this.deudores[i].telefono}`);
+        ckbD.checked = false;
+      }
+
+    }
+    else {
+    this.deudoresArray = [];
+      for(let i = 0; i < this.deudores.length; i++) {
+        this.deudoresArray.push(this.deudores[i].telefono);
+        let ckbD = <HTMLInputElement>document.getElementById(`${this.deudores[i].telefono}`);
+        ckbD.checked = true;
+      }
+    }
+  }
+
+  
+  setTelefono(telefono: number) {
+
+    if(this.deudoresArray.length == 0) {
+      this.deudoresArray.push(telefono);
+    }
+    else {
+      for(let i = 0; i < this.deudoresArray.length; i++) {
+      
+        if(this.deudoresArray[i] == telefono) {
+          this.deudoresArray.splice(i,1); 
+          this.encontrado = true;
+          let ckbAll = <HTMLInputElement>document.getElementById('ckbAll');
+          ckbAll.checked = false;
+          break;
+        }
+        else {
+         this.encontrado = false;
+        }
+      }
+
+      if(this.encontrado == false) {
+        this.deudoresArray.push(telefono);
+      }
+    }
+  }
+
+  getConceptos() {
+
+    this.adminService.verConceptos().subscribe(
+      res => {
+        this.conceptos = res;
+      },
+      err => console.error(err)
+    );
+
+  }
+
+  saveDeuda() {
+
+    this.deuda.deudores = this.deudoresArray;
+    if(this.deuda.concepto == '') {
+      M.toast({html: 'Seleccione un concepto'});
+    }
+    if(this.deuda.deudores.length == 0){
+
+      M.toast({html: 'Seleccione el deudor o deudores'});
+
+    }
+    else {
+      this.adminService.addDeuda(this.deuda).subscribe(
+        res => {
+          M.toast({html: 'Dueda Agregada'});
+        },
+        err => console.error(err)
+      );
     }
   }
 
@@ -60,7 +159,7 @@ export class AdminComponent implements OnInit {
             this.cleanForm(form);
           },
           err => console.error(err)
-        )
+        );
     }
 
   }

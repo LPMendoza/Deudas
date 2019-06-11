@@ -5,50 +5,15 @@
       <div class="col s10 m10 l5 ">
         <div class="card">
           <div class="card-content">
-            <form  #frmDeuda="ngForm" class="login-container"(ngSubmit)="saveDeuda()" >
-              <h4 class="center-align">Agregar Adeudo</h4>
-              <div class="row">
-                <div class="input-field col s12 m6 l11">
-                  <p>Concepto</p>
-                  <select [(ngModel)]="deuda.concepto"  name="concepto" class="browser-default" style="outline: none;" >
-                    <option *ngFor="let concepto of conceptos" [value]="concepto.nombre" >{{concepto.nombre}}</option>
-                  </select>
-                </div>
-
-                <div class="input-field col s12 m6 l11"  style="margin-bottom: 50px !important;">
-                  <label>
-                    <input type="checkbox" class="filled-in" id="ckbAll" (click)="checkAll()"/>
-                    <span>Seleccionar a todos</span>
-                  </label>
-                </div>
-
-                <div class="card-action">
-                  <div class="input-field col s12">
-  
-                    <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Agregar<i class="material-icons right">send</i></button>
-  
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
             <form  #frmPagar="ngForm" class="login-container" (ngSubmit)="addPago()">
                 <h4 class="center-align">Pagar</h4>
                 <div class="row">
                   <div class="input-field col s12 m6 l11">
-                    <p>Concepto</p>
-                    <select [(ngModel)]="pago.referencia_deuda"  name="concepto" class="browser-default" style="outline: none;" >
-                      <option *ngFor="let concepto of conceptos" [value]="concepto.nombre">{{concepto.nombre}}</option>
-                    </select>
+                    <h5>Referencia</h5>
+                    <h6 id="rdb" class="center-align" style="color: rgb(100, 100, 100); 
+                    box-shadow: 0 1px 5px rgba(10,10,10,0.12), 0 1px 2px rgba(10,10,10,0.1); padding: 10px; border-radius: 50px;" >
+                    </h6>
                   </div>
-                  <div class="input-field col s12 l11" style="margin-top: 30px !important;">
-                    <i class="material-icons prefix">phone</i>
-                   <input type="text" maxlength="10" class="validate" id="telefono" name="telefono" [(ngModel)]="pago.id_deudor">
-                   <label for="telefono">Teléfono</label>
-                 </div>
                   <div class="input-field col s12 l11" style="margin-top: 30px !important;">
                       <i class="material-icons prefix">attach_money</i>
                      <input type="number" maxlength="10" class="validate" id="monto" name="monto" [(ngModel)]="pago.monto">
@@ -57,7 +22,7 @@
                   <div class="card-action">
                     <div class="input-field col s12">
     
-                      <button class="btn right yellow darken-2 waves-effect" type="submit"  style="margin-left: 5px;">Pagar<i class="material-icons right">attach_money</i></button>
+                      <button class="btn right cyan accent-3 black-text waves-effect" type="submit"  style="margin-left: 5px;">Pagar<i class="material-icons right">attach_money</i></button>
     
                     </div>
                   </div>
@@ -67,27 +32,31 @@
         </div>
         
       </div>
-      <table class="col l5 responsive-table centered white" style="margin-left: 10px;">
+      <table class="col l6 responsive-table centered white" style="margin-left: 10px;">
           <thead>
             <tr>
                 <th>Seleccionar</th>
+                <th>Referencia</th>
                 <th>Teléfono</th>
-                <th>Nombre</th>
+                <th>Concepto</th>
+                <th>Estado</th>
                 <th>Adeudo</th>
             </tr>
           </thead>
   
-          <tbody *ngFor="let d of deudores">
+          <tbody *ngFor="let deuda of deudas">
             <tr>
               <td>
                 <label>
-                  <input type="checkbox" [attr.id]="d.telefono" ng-model="selected" class="filled-in" ng-checked="selectAll"  (click)="setTelefono(d.telefono)"/>
+                  <input type="radio" name="rdb" class="with-gap" (click)="setIdDeudor(deuda.referencia, deuda.id_deudor, deuda.concepto)"/>
                   <span></span>
-                </label>
+                </label>  
               </td>
-              <td>{{d.telefono}}</td>
-              <td>{{d.nombre}}</td>
-              <td>{{d.adeudo}}</td>
+              <td>{{deuda.referencia}}</td>
+              <td>{{deuda.id_deudor}}</td>
+              <td>{{deuda.concepto}}</td>
+              <td>{{deuda.estado}}</td>
+              <td>{{deuda.debe}}</td>
             </tr>
           </tbody>
         </table>         

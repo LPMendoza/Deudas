@@ -8,7 +8,9 @@ class GamesRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', deudoresController_1.deudoresController.getDeudores);
+        this.router.get('/:id', deudoresController_1.deudoresController.getAdeudo);
+        this.router.get('/deudas/:id', deudoresController_1.deudoresController.getDeudas);
+        this.router.get('/pagos/:id', deudoresController_1.deudoresController.getPagos);
     }
 }
 const gamesRoutes = new GamesRoutes();

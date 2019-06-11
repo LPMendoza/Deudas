@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Frontend</title>
+  <title>Control de Deudores</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,28 +14,28 @@
     <style>
         /* icon prefix focus color */
         .input-field .prefix.active {
-          color: #3d5afe;
-          background-color: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+          color: #f50057;
         }
              /* label focus color */
         .input-field input[type=text]:focus + label, input[type=number]:focus + label, input[type=password]:focus + label {
-          color: #3d5afe !important;
+          color: #f50057 !important;
         }
         /* label underline focus color */
         .input-field input[type=text]:focus, input[type=number]:focus, input[type=password]:focus{
-          border-bottom: 1px solid #3d5afe !important;
+          border-bottom: 1px solid #f50057 !important;
         }
         /* valid color */
         .input-field input[type=number].valid, .input-field input[type=text].valid, .input-field input[type=password].valid {
-          border-bottom: 1px solid #3d5afe !important;
+          border-bottom: 1px solid #f50057 !important;
         }
+
         [type="checkbox"].filled-in:checked + span:not(.lever):after {
  
           top: 0;
           width: 20px;
           height: 20px;
-          border: 2px solid #fbc02d  !important;
-          background-color: #fbc02d  !important;
+          border: 2px solid #f50057   !important;
+          background-color: #f50057   !important;
           z-index: 0;
 
         }
@@ -45,18 +45,24 @@
  
         [type="radio"].with-gap:checked + span:after {
  
-          border: 2px solid #fbc02d;
+          border: 2px solid #f50057 ;
  
         }
  
- 
+        .card-content {
+          border-top: 1px solid #fff !important;"
+        }
  
         [type="radio"]:checked + span:after,
  
         [type="radio"].with-gap:checked + span:after {
  
-          background-color: #fbc02d;
+          background-color: #f50057 ;
  
+        }
+
+        .input-field input {
+          font-family: 'Nunito';
         }
  
     </style>

@@ -162,32 +162,7 @@ UNLOCK TABLES;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_insert_pago` AFTER INSERT ON `pagos` FOR EACH ROW BEGIN
-    DECLARE deudor VARCHAR(10);
-    DECLARE referencia INT;
-    DECLARE monto_a_pagar DOUBLE;
-    DECLARE pertenece VARCHAR(10);
-    DECLARE debe DOUBLE;
-    
-    SET deudor = NEW.id_deudor;
-    SET referencia = NEW.referencia_deuda;
-    SET monto_a_pagar = NEW.monto;
-    SET pertenece = (SELECT id_deudor FROM deudas WHERE id_deudor = deudor AND deudas.referencia = referencia);
-    #SET debe = deudas.debe;
-    
-    IF(pertenece = deudor) THEN
-		UPDATE deudas SET debe = debe - monto_a_pagar WHERE deudas.referencia = referencia;
-        
-        IF((SELECT debe FROM deudas WHERE id_deudor = deudor)IS NULL) THEN
-            UPDATE deudas SET debe = 0 WHERE deudas.referencia = referencia;
-            UPDATE deudas SET estado = 'PAGADO' WHERE deudas.referencia = referencia;
-        END IF;
-        
-		UPDATE deudores SET adeudo = adeudo - monto_a_pagar WHERE deudor = telefono;
-	END IF;
-	
- END */;;
+
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;

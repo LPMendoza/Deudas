@@ -2,36 +2,64 @@
 <div class="container">
     <div class="row">
       <div class="col s10 m10 l5 ">
-        <div class="card">
-          <div class="card-content">
-            <form  #frmAdmin="ngForm" class="login-container" (ngSubmit)="saveDeudor(frmAdmin)">
-              <h4 class="center-align">Agregar Deudor</h4>
+        <div class="card white white">
+          <div class="card-content white">
+            <form  #frmAdmin="ngForm" class="login-container " (ngSubmit)="saveDeudor(frmAdmin)">
+              <h4 class="center-align black-text">Agregar Deudor</h4>
               <div class="row">
                 <div class="input-field col s12 l11" style="margin-top: 30px !important;">
-                   <i class="material-icons prefix">phone</i>
                   <input type="text" maxlength="10" class="validate" id="telefono" name="telefono" [(ngModel)]="deudor.telefono">
                   <label for="telefono">Teléfono</label>
                 </div>
                 <div class="input-field col s12 l11">
-                    <i class="material-icons prefix">person</i>
                    <input type="text" maxlength="30" class="validate" id="nombre" name="nombre" [(ngModel)]="deudor.nombre">
                    <label for="nombre">Nombre</label>
                 </div>
                 <div class="input-field col s12 l11">
-                   <i class="material-icons prefix">security</i>
                   <input type="password" maxlength="20" class="validate" id="pass" name="pass" [(ngModel)]="deudor.pass">
                   <label for="pass">Contraseña</label>
                 </div>
                 <div class="input-field col s12 l11">
-                    <i class="material-icons prefix">email</i>
                    <input type="text" maxlength="30" class="validate" id="email" name="email" [(ngModel)]="deudor.mail">
                    <label for="email">Email</label>
                  </div>
                 <div class="card-action">
                   <div class="input-field col s12">
   
-                    <button class="btn right indigo accent-3 waves-effect" type="submit"  style="margin-left: 5px;">Registrar<i class="material-icons right">send</i></button>
-                    <button class="btn right yellow darken-2 waves-effect" type="submit" (click)="cleanForm(frmAdmin)">Limpiar<i class="material-icons right">refresh</i></button>
+                    <button class="btn right cyan accent-3 waves-effect black-text" type="submit"  style="margin-left: 5px;">Registrar<i class="material-icons right">send</i></button>
+                    <button class="btn right pink accent-3 waves-effect black-text" type="submit" (click)="cleanForm(frmAdmin)">Limpiar<i class="material-icons right">delete</i></button>
+  
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+
+        <div class="card white">
+          <div class="card-content">
+            <form  #frmDeuda="ngForm" class="login-container"(ngSubmit)="saveDeuda()" >
+              <h4 class="center-align black-text">Agregar Adeudo</h4>
+              <div class="row">
+                <div class="input-field col s12 m6 l11">
+                  <p>Concepto</p>
+                  <select [(ngModel)]="deuda.concepto"  name="concepto" class="browser-default" style="outline: none;" >
+                    <option *ngFor="let concepto of conceptos" [value]="concepto.concepto" >{{concepto.concepto}}</option>
+                  </select>
+                </div>
+
+                <div class="input-field col s12 m6 l11"  style="margin-bottom: 50px !important;">
+                  <label>
+                    <input type="checkbox" class="filled-in" id="ckbAll" (click)="checkAll()"/>
+                    <span>Seleccionar a todos</span>
+                  </label>
+                </div>
+
+                <div class="card-action">
+                  <div class="input-field col s12">
+  
+                    <button class="btn right cyan accent-3 waves-effect black-text"  type="submit"  style="margin-left: 5px;">Agregar<i class="material-icons right">send</i></button>
   
                   </div>
                 </div>
@@ -44,6 +72,7 @@
       <table class="col l7 responsive-table centered white" style="margin-left: 0px;">
           <thead>
             <tr>
+              <th>Seleccionar</th>
                 <th>Teléfono</th>
                 <th>Nombre</th>
                 <th>Email</th>
@@ -53,10 +82,17 @@
   
           <tbody *ngFor="let d of deudores">
             <tr>
-              <td>{{d.telefono}}</td>
-              <td>{{d.nombre}}</td>
-              <td>{{d.mail}}</td>
-              <td>{{d.adeudo}}</td>
+              
+              <td>
+                <label>
+                  <input type="checkbox" [attr.id]="d.telefono" ng-model="selected" class="filled-in" ng-checked="selectAll"  (click)="setTelefono(d.telefono)"/>
+                  <span></span>
+                </label>  
+              </td>
+              <td class="black-text">{{d.telefono}}</td>
+              <td class="black-text">{{d.nombre}}</td>
+              <td class="black-text">{{d.mail}}</td>
+              <td class="black-text">{{d.adeudo}}</td>
             </tr>
           </tbody>
 

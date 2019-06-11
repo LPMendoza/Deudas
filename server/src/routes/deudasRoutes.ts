@@ -10,7 +10,9 @@ class GamesRoutes {
    }
 
    config(): void {
-      this.router.get('/', deudoresController.getDeudores);
+      this.router.get('/:id', deudoresController.getAdeudo);
+      this.router.get('/deudas/:id', deudoresController.getDeudas);
+      this.router.get('/pagos/:id', deudoresController.getPagos);
    }
 
 }

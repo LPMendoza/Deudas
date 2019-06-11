@@ -15,6 +15,7 @@ class IndexRoutes {
         this.router.post('/deudores', administradoresController_1.administradoresController.createDeudor);
         this.router.get('/conceptos/:id', administradoresController_1.administradoresController.verConceptos);
         this.router.post('/pago/:id', administradoresController_1.administradoresController.addPago);
+        this.router.get('/pago', administradoresController_1.administradoresController.getPagos);
     }
 }
 const indexRoutes = new IndexRoutes();

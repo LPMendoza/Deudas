@@ -10,18 +10,23 @@
                 <div class="input-field col s12 l11" style="margin-top: 30px !important;">
                   <input type="text" maxlength="10" class="validate" id="telefono" placeholder="Teléfono" [(ngModel)]="filtro.id_deudor" name="telefono">
                 </div>
-               <div class="input-field col s12 l2" style="margin-top: 10px !important;margin-right: 15px;">
-                  <label>
-                    <input type="radio" name="rdb" (click)="setMes()" class="with-gap"/>
-                    <span>Mes</span>
-                  </label>                  
-               </div>
-              <div class="input-field col s12 l12" style="margin-top: 10px !important;margin-right: 15px;">
-                  <label>
-                    <input type="radio" name="rdb" click="setMesNull()" class="with-gap"/>
-                    <span>Ninguno</span>
-                  </label>                  
-              </div>
+                <div class="input-field col s12 m6 l11">
+                  <p>Mes</p>
+                  <select [(ngModel)]="filtro.mes"  name="concepto" class="browser-default" style="outline: none;" >
+                    <option value=1>Enero</option>
+                    <option value=2>Febrero</option>
+                    <option value=3>Marzo</option>
+                    <option value=4>Abril</option>
+                    <option value=5>Mayo</option>
+                    <option value=6>Junio</option>
+                    <option value=7>Julio</option>
+                    <option value=8>Agosto</option>
+                    <option value=9>Septiembre</option>
+                    <option value=10>Octubre</option>
+                    <option value=11>Noviembre</option>
+                    <option value=12>Diciembre</option>
+                  </select>
+                </div>
                 <div class="card-action">
                   <div class="input-field col s12">
   

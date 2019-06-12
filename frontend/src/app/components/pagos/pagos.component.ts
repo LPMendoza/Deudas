@@ -39,17 +39,13 @@ export class PagosComponent implements OnInit {
   }
 
   getPagosFiltrados() {
+    console.log(this.filtro)
     this.pagosService.getPagosFiltrados(this.filtro).subscribe(
       res => {
         this.pagos = res;
       },
       err => console.error(err)
     )
-  }
-
-  setMes() {
-    let date = new Date();
-    this.filtro.mes = date.getMonth() + 1;
   }
 
   setMesNull() {

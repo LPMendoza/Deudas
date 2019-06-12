@@ -8,7 +8,7 @@
               <h4 class="center-align">Filtros</h4>
               <div class="row">
                 <div class="input-field col s12 l11" style="margin-top: 30px !important;">
-                  <input type="text" maxlength="10" class="validate" id="telefono" placeholder="Teléfono" [(ngModel)]="filtro.id_deudor" name="telefono">
+                  <input type="text" maxlength="10" class="validate" id="telefono" placeholder="Teléfono" [(ngModel)]="filtro.id_deudor" name="telefono" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                 </div>
                 <div class="input-field col s12 m6 l11">
                   <p>Mes</p>

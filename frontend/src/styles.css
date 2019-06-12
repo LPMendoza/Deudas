@@ -69,6 +69,10 @@ form h4, th {
    font-weight: bold;
 }
 
+td {
+   color: #444;
+}
+
 select {
    cursor: pointer;
    border-radius: 50px;   

@@ -3,3 +3,17 @@ body {
    background-size: cover;
    background-attachment: fixed;
 }
+
+.formContent {
+   margin-left: 30% !important;
+   margin-top: 10% !important;
+}
+
+@media only screen and (max-width: 950px) {
+
+   .formContent {
+      margin-left: 2% !important;
+      margin-top: 10% !important;
+   }   
+	
+}

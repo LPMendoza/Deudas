@@ -25,6 +25,8 @@ export class DeudasComponent implements OnInit {
   }
 
   deudas: any = [];
+
+  montoDeudor: number;
   
   conceptos: Concepto[];
 
@@ -39,16 +41,17 @@ export class DeudasComponent implements OnInit {
     }
   }
 
-  setIdDeudor(id_referencia: number, id_deudor: string, concepto: string) {
+  setIdDeudor(id_referencia: number, id_deudor: string, concepto: string, montoDeudor: number) {
     this.pago.id_deudor = id_deudor;
     this.pago.referencia_deuda = id_referencia;
     let rbReferencia = <HTMLInputElement>document.getElementById('rdb');
     rbReferencia.textContent = `${this.pago.referencia_deuda} - ${concepto}`;
+    this.montoDeudor = montoDeudor;
   }
 
   addPago() {
     if(this.pago.referencia_deuda == null || this.pago.monto == null || this.pago.monto == 0
-    || this.pago.id_deudor == '' || this.pago.id_deudor.length < 10) {
+    || this.pago.id_deudor == '' || this.pago.id_deudor.length < 10 || this.pago.monto > this.montoDeudor) {
 
       M.toast({html: 'Campos incorrectos'});
 

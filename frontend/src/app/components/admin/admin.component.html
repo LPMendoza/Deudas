@@ -7,16 +7,16 @@
             <form  #frmAdmin="ngForm" class="login-container " (ngSubmit)="saveDeudor(frmAdmin)">
               <h4 class="center-align">Registrar Deudor</h4>
               <div class="row">
-                <div class="input-field col s12 l11" style="margin-top: 30px !important;">
+                <div class="input-field col s11 l11" style="margin-top: 30px !important;">
                   <input type="text" maxlength="10" class="validate" id="telefono" name="telefono" placeholder="Telefono" [(ngModel)]="deudor.telefono">
                 </div>
-                <div class="input-field col s12 l11">
+                <div class="input-field col s11 l11">
                    <input type="text" maxlength="30" class="validate" id="nombre" name="nombre" placeholder="Nombre" [(ngModel)]="deudor.nombre">
                 </div>
-                <div class="input-field col s12 l11">
+                <div class="input-field col s11 l11">
                   <input type="password" maxlength="20" class="validate" id="pass" name="pass" placeholder="Contraseña"[(ngModel)]="deudor.pass">
                 </div>
-                <div class="input-field col s12 l11">
+                <div class="input-field col s11 l11">
                    <input type="text" maxlength="30" class="validate" id="email" name="email" placeholder="Email" [(ngModel)]="deudor.mail">
                  </div>
                 <div class="card-action">
@@ -55,7 +55,7 @@
                 <div class="card-action">
                   <div class="input-field col s12">
   
-                    <button class="btn right cyan accent-3 waves-effect"  type="submit"  style="background-image: linear-gradient(160deg, #f50057 0%, #c51162 100%) !important;">Agregar<i class="material-icons right">send</i></button>
+                    <button class="btn right cyan accent-3 waves-effect col l12 m12 s12"  type="submit"  style="background-image: linear-gradient(160deg, #f50057 0%, #c51162 100%) !important;">Agregar<i class="material-icons right">send</i></button>
   
                   </div>
                 </div>

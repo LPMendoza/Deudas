@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeudoresService } from '../../service/deudores.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-deudores',
@@ -12,12 +13,17 @@ export class DeudoresComponent implements OnInit {
   pagos: any = [];
   adeudo: any = [];
 
-  constructor(private deudoresService: DeudoresService) { }
+  constructor(private deudoresService: DeudoresService, private router: Router) { }
 
   ngOnInit() {
-    this.getAdeudo();
-    this.getPagos();
-    this.getDeudas();
+    if(localStorage.getItem("KEY_ACCESS") == '') {
+      this.router.navigateByUrl('/login');
+    }
+    else {
+      this.getAdeudo();
+      this.getPagos();
+      this.getDeudas();
+    }
   }
 
   getDeudas() {

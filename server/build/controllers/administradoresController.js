@@ -80,7 +80,6 @@ class AdministradoresController {
     getPagos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const pagos = yield database_1.default.query(`SELECT *,(select debe from deudas where referencia = referencia_deuda) as adeudo FROM pagos`);
-            console.log(pagos);
             res.json(pagos);
         });
     }
@@ -89,15 +88,23 @@ class AdministradoresController {
         return __awaiter(this, void 0, void 0, function* () {
             //mes == null, busca por numero de telefono(id_deudor)
             if (req.body.mes == null && req.body.id_deudor != '') {
-                const pagos = yield database_1.default.query(`SELECT *,(select debe from deudas where referencia = referencia_deuda) FROM pagos WHERE id_deudor = ${req.body.id_deudor}`);
+                const pagos = yield database_1.default.query(`SELECT *,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE id_deudor = ${req.body.id_deudor}`);
+                res.json(pagos);
             }
             //id_deudor == null, busca por mes
             else if (req.body.mes != null && req.body.id_deudor == '') {
-                const pagos = yield database_1.default.query(`SELECT *,(select debe from deudas where referencia = referencia_deuda) FROM pagos WHERE MONTH(fecha) = ${req.body.mes}`);
+                const pagos = yield database_1.default.query(`SELECT * ,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE MONTH(fecha) = ${req.body.mes}`);
+                res.json(pagos);
+            }
+            //id_deudor == null, busca por mes
+            else if (req.body.mes != null && req.body.id_deudor != '') {
+                const pagos = yield database_1.default.query(`SELECT * ,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE MONTH(fecha) = ${req.body.mes} AND id_deudor = ${req.body.id_deudor}`);
+                res.json(pagos);
             }
             //mes y id_deudor(telefono) = null, busca todos llamando metodo getPagos()
             else {
-                this.getPagos(req, res);
+                const pagos = yield database_1.default.query(`SELECT * ,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos`);
+                res.json(pagos);
             }
         });
     }

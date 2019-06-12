@@ -74,7 +74,6 @@ class AdministradoresController {
    //consultar todos los pagos
    public async getPagos(req: Request, res: Response) {
       const pagos = await pool.query(`SELECT *,(select debe from deudas where referencia = referencia_deuda) as adeudo FROM pagos`);
-      console.log(pagos);
       res.json(pagos);
    }
 
@@ -82,15 +81,23 @@ class AdministradoresController {
    public async filterPagos(req: Request, res: Response){
       //mes == null, busca por numero de telefono(id_deudor)
       if (req.body.mes == null && req.body.id_deudor != '') {
-         const pagos = await pool.query(`SELECT *,(select debe from deudas where referencia = referencia_deuda) FROM pagos WHERE id_deudor = ${req.body.id_deudor}`);
+         const pagos = await pool.query(`SELECT *,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE id_deudor = ${req.body.id_deudor}`);
+         res.json(pagos);
       }
       //id_deudor == null, busca por mes
       else if (req.body.mes != null && req.body.id_deudor == ''){
-         const pagos = await pool.query(`SELECT *,(select debe from deudas where referencia = referencia_deuda) FROM pagos WHERE MONTH(fecha) = ${req.body.mes}`);
+         const pagos = await pool.query(`SELECT * ,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE MONTH(fecha) = ${req.body.mes}`);
+         res.json(pagos);
+      }
+      //id_deudor == null, busca por mes
+      else if (req.body.mes != null && req.body.id_deudor != ''){
+         const pagos = await pool.query(`SELECT * ,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE MONTH(fecha) = ${req.body.mes} AND id_deudor = ${req.body.id_deudor}`);
+         res.json(pagos);
       }
       //mes y id_deudor(telefono) = null, busca todos llamando metodo getPagos()
-      else{
-         this.getPagos(req, res);
+      else {
+         const pagos = await pool.query(`SELECT * ,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos`);
+         res.json(pagos);
       }
    }
 

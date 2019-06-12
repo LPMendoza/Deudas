@@ -1,13 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+html {
+   height: 100%;
+}
 body {
-   background: #eee ;
-   font-family: 'Nunito';
-
+   background: #fff;
+   background-size: cover;
+   background-attachment: fixed;
+   height: 100%;
+   font-family: 'Roboto';
 }
 body::-webkit-scrollbar-track {
    background: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+   padding-top: 7% !important;
+
 }
 
 body::-webkit-scrollbar {
@@ -20,20 +30,50 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-   background: #304ffe;
+   background: #f50057;
+
 }
 
 .btn, .btn-large {
    font-family: 'Nunito';  
-   font-size: 12px;
+   font-size: 14px;
    font-weight: bold;
    border-radius: 50px;
 }
 
+.colores {
+   background-image: linear-gradient(160deg, #00e5ff 0%, #00b8d4  100%) !important;
+   background-image: linear-gradient(160deg, #f50057 0%, #c51162 100%) !important;
+
+}
+
+nav {
+   background-color: #00b8d4;
+   position: fixed !important;
+   top: 0 !important;
+   color: white;
+   box-shadow: 0 1px 20px rgba(10,10,10,0.2), 0 1px 2px rgba(10,10,10,0.1);
+}
+
+nav .brand-logo {
+   color: white;
+   font-weight: bold;
+}
+
+nav li a {
+   color: white;
+}
+
+form h4, th {
+   color:#444;
+   font-weight: bold;
+}
+
 select {
    cursor: pointer;
+   border-radius: 50px;   
+   box-shadow: 0 1px 5px rgba(10,10,10,0.3), 0 1px 2px rgba(10,10,10,0.1) !important;
    border-radius: 50px;
-   box-shadow: 0 1px 5px rgba(10,10,10,0.12), 0 1px 2px rgba(10,10,10,0.1); padding: 10px; border-radius: 50px;
    margin-top: 10px;
    transition: 0.2s ease;
 }
@@ -46,4 +86,5 @@ select:hover {
 table {
    box-shadow: 0 1px 5px rgba(10,10,10,0.12), 0 1px 2px rgba(10,10,10,0.1);
    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+   background: white;
 }

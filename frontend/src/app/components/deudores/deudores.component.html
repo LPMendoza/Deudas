@@ -1,20 +1,20 @@
 <app-navbar-deudor></app-navbar-deudor>
-<div>
+<div style="margin-top: 7%">
     <div class="row">
       <table class="col l4 responsive-table centered white" style="margin-left: 10px;">
           <thead>
             <tr>
-                <th>Monto</th>
-                <th>Fecha</th>
-                <th>Concepto</th>
+              <th>Referencia</th>
+              <th>Monto</th>
+              <th>Fecha</th>
             </tr>
           </thead>
   
-          <tbody>
+          <tbody *ngFor="let pago of pagos">
             <tr>
-              <td>monto</td>
-              <td>Fecha</td>
-              <td>Concepto</td>
+              <td>{{pago.referencia}}</td>
+              <td>{{pago.monto}}</td>
+              <td>{{pago.fecha}}</td>
             </tr>
           </tbody>
         </table>       
@@ -27,10 +27,10 @@
               </tr>
             </thead>
     
-            <tbody>
+            <tbody *ngFor="let deuda of deudas">
               <tr>
-                <td>concepto</td>
-                <td>monto</td>
+                <td>{{deuda.concepto}}</td>
+                <td>{{deuda.debe}}</td>
               </tr>
             </tbody>
           </table>  
@@ -38,11 +38,11 @@
               <div class="col s10 m10 l3">
                 <div class="card">
                   <div class="card-content">
-                    <form  #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin()">
+                    <form class="login-container">
                        <h4 class="center-align">Adeudo Total</h4>
                       <div class="row">
                         <div class="card-action"> 
-                          <h3 class="center-align yellow-text text-darken-2">$ 5422.52</h3> 
+                          <h3 class="center-align pink-text text-accent-3" *ngFor="let d of adeudo">$ {{d.adeudo}}</h3> 
                         </div>
                       </div>
                     </form>

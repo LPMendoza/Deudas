@@ -16,17 +16,28 @@
         .input-field .prefix.active {
           color: #f50057;
         }
+        ::placeholder {
+          color: #888 !important;
+        }
              /* label focus color */
         .input-field input[type=text]:focus + label, input[type=number]:focus + label, input[type=password]:focus + label {
           color: #f50057 !important;
         }
+
+        .input-field input {
+          border-bottom: none !important;
+          border-radius: 50px !important;
+          box-shadow: 0 1px 5px rgba(10,10,10,0.3), 0 1px 2px rgba(10,10,10,0.1) !important;
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
         /* label underline focus color */
         .input-field input[type=text]:focus, input[type=number]:focus, input[type=password]:focus{
-          border-bottom: 1px solid #f50057 !important;
+          border-bottom: none !important;
         }
         /* valid color */
         .input-field input[type=number].valid, .input-field input[type=text].valid, .input-field input[type=password].valid {
-          border-bottom: 1px solid #f50057 !important;
+          border-bottom: none !important;
         }
 
         [type="checkbox"].filled-in:checked + span:not(.lever):after {
@@ -50,7 +61,7 @@
         }
  
         .card-content {
-          border-top: 1px solid #fff !important;"
+          border-top: 1px solid #fff !important;
         }
  
         [type="radio"]:checked + span:after,

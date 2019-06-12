@@ -10,19 +10,17 @@
                 <div class="row">
                   <div class="input-field col s12 m6 l11">
                     <h5>Referencia</h5>
-                    <h6 id="rdb" class="center-align" style="color: rgb(100, 100, 100); 
+                    <h6 id="rdb" class="left-align col l12" style="color: rgb(100, 100, 100); 
                     box-shadow: 0 1px 5px rgba(10,10,10,0.12), 0 1px 2px rgba(10,10,10,0.1); padding: 10px; border-radius: 50px;" >
                     </h6>
                   </div>
                   <div class="input-field col s12 l11" style="margin-top: 30px !important;">
-                      <i class="material-icons prefix">attach_money</i>
-                     <input type="number" maxlength="10" class="validate" id="monto" name="monto" [(ngModel)]="pago.monto">
-                     <label for="monto">Monto</label>
+                     <input type="number" maxlength="10" class="validate" id="monto" name="monto" placeholder="Monto" [(ngModel)]="pago.monto">
                    </div>
                   <div class="card-action">
                     <div class="input-field col s12">
     
-                      <button class="btn right cyan accent-3 black-text waves-effect" type="submit"  style="margin-left: 5px;">Pagar<i class="material-icons right">attach_money</i></button>
+                      <button class="btn right waves-effect" type="submit" style="background-image: linear-gradient(160deg, #f50057 0%, #c51162 100%) !important;">Pagar<i class="material-icons right">attach_money</i></button>
     
                     </div>
                   </div>

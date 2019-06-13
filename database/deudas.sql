@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `deudas` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `deudas`;
 -- MySQL dump 10.13  Distrib 5.7.26-ndb-7.6.10, for Linux (x86_64)
 --
 -- Host: 172.17.0.2    Database: deudas
@@ -36,7 +38,7 @@ CREATE TABLE `administradores` (
 
 LOCK TABLES `administradores` WRITE;
 /*!40000 ALTER TABLE `administradores` DISABLE KEYS */;
-INSERT INTO `administradores` VALUES ('1234554321','El del Varo','qweRty789');
+INSERT INTO `administradores` VALUES ('1234554321','El Patron','qweRty789');
 /*!40000 ALTER TABLE `administradores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +65,7 @@ CREATE TABLE `conceptos` (
 
 LOCK TABLES `conceptos` WRITE;
 /*!40000 ALTER TABLE `conceptos` DISABLE KEYS */;
-INSERT INTO `conceptos` VALUES ('arduino-startedpack','1234554321',450),('diy-minipc','1234554321',550);
+INSERT INTO `conceptos` VALUES ('300m-cobre','1234554321',300),('arduino-startedpack','1234554321',450),('caja-materiales','1234554321',350),('cautin-y-cobre','1234554321',200),('diy-minipc','1234554321',550),('kit-arduino-cable-utp','1234554321',200),('kit-leds-resistencias','1234554321',50);
 /*!40000 ALTER TABLE `conceptos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +122,7 @@ CREATE TABLE `deudores` (
 
 LOCK TABLES `deudores` WRITE;
 /*!40000 ALTER TABLE `deudores` DISABLE KEYS */;
-INSERT INTO `deudores` VALUES ('1237013598','12345','Fernando',0,'fernando@ucol.mx'),('2364126196','12345','Pedro',0,'pedro@ucol.mx'),('4628242298','12345','Israel',0,'israelqucol.mx');
+INSERT INTO `deudores` VALUES ('1237013598','12345','Fernando',0,'fernando@ucol.mx'),('2364126196','12345','Pedro',0,'pedro@ucol.mx'),('4628242298','12345','Israel',0,'israel@ucol.mx');
 /*!40000 ALTER TABLE `deudores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,20 +156,6 @@ LOCK TABLES `pagos` WRITE;
 /*!40000 ALTER TABLE `pagos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pagos` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `pseudo_deudas`
@@ -205,7 +193,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_insert_deuda` AFTER INSERT ON `pseudo_deudas` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`%`*/ /*!50003 TRIGGER `after_insert_deuda` AFTER INSERT ON `pseudo_deudas` FOR EACH ROW BEGIN
     DECLARE deudor VARCHAR(10);
     DECLARE cantidad DOUBLE;
     
@@ -239,4 +227,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-10 11:30:17
+-- Dump completed on 2019-06-12 19:44:45

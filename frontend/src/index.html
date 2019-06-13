@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Control de Deudores</title>
+  <title>Electronic Inc</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,15 +30,22 @@
           box-shadow: 0 1px 5px rgba(10,10,10,0.3), 0 1px 2px rgba(10,10,10,0.1) !important;
           padding-left: 20px !important;
           padding-right: 20px !important;
-          color: #444;
+          color: #444 !important;
+          font-family: 'Roboto' !important;
+        }
+        .input-field input[type=text]:hover, input[type=number]:hover, input[type=password]:hover{
+          border-bottom: none !important;
+
         }
         /* label underline focus color */
         .input-field input[type=text]:focus, input[type=number]:focus, input[type=password]:focus{
           border-bottom: none !important;
+
         }
         /* valid color */
         .input-field input[type=number].valid, .input-field input[type=text].valid, .input-field input[type=password].valid {
           border-bottom: none !important;
+
         }
 
         [type="checkbox"].filled-in:checked + span:not(.lever):after {

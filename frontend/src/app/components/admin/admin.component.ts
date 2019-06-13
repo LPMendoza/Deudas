@@ -3,7 +3,7 @@ import { Deudor } from 'src/app/models/Deudor';
 import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Deuda } from 'src/app/models/Deuda';
+import { Deuda } from '../../models/Deuda';
 
 declare var M: any;
 

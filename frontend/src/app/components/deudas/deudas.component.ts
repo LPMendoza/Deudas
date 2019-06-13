@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, SelectMultipleControlValueAccessor } from '@angular/forms';
 import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
-import {Concepto}  from 'src/app/models/concepto';
-import {Pago}  from 'src/app/models/pago';
+import {Concepto}  from '../../models/concepto';
+import {Pago}  from '../../models/pago';
 
 declare var M: any;
 

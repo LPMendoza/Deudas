@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService} from '../../service/login.service';
-import { User } from 'src/app/models/User';
+import { User } from '../../models/User';
 import { NgForm } from '@angular/forms';
 
 declare var M: any;

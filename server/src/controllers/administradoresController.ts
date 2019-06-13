@@ -80,7 +80,7 @@ class AdministradoresController {
    //consular los pagos con filtros, por mes y por deudor, {"id_deudor":"","mes":}
    public async filterPagos(req: Request, res: Response){
       //mes == null, busca por numero de telefono(id_deudor)
-      if (req.body.mes == null && req.body.id_deudor != '') {
+      if (req.body.mes == 'null' && req.body.id_deudor != '') {
          const pagos = await pool.query(`SELECT *,(select debe from deudas WHERE referencia = referencia_deuda) as adeudo FROM pagos WHERE id_deudor = ${req.body.id_deudor}`);
          res.json(pagos);
       }

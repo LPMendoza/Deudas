@@ -28,7 +28,7 @@ export class PagosComponent implements OnInit {
       this.getPagosFiltrados();
     }
   }
-
+/*
   getPagos() {
     this.pagosService.getPagos().subscribe(
       res => {
@@ -36,7 +36,7 @@ export class PagosComponent implements OnInit {
       },
       err => console.error(err)
     )
-  }
+  }*/
 
   getPagosFiltrados() {
     console.log(this.filtro)

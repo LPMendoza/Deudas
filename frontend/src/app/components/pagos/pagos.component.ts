@@ -15,7 +15,7 @@ export class PagosComponent implements OnInit {
 
   filtro: Filtro = {
     id_deudor: '',
-    mes: null
+    mes: 0
   };
 
   constructor(private router: Router, private pagosService: PagosService) { }

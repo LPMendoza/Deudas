@@ -62,6 +62,7 @@ export class DeudasComponent implements OnInit {
         res => {
           M.toast({html: 'Pago realizado'});
           this.getDeudas();
+          this.montoDeudor = 0; 
         },
         err => console.error(err)
       );

@@ -117,18 +117,14 @@ export class AdminComponent implements OnInit {
   saveDeuda() {
 
     this.deuda.deudores = this.deudoresArray;
-    if(this.deuda.concepto == '') {
-      M.toast({html: 'Seleccione un concepto'});
-    }
-    if(this.deuda.deudores.length == 0){
-
-      M.toast({html: 'Seleccione el deudor o deudores'});
-
+    if(this.deuda.concepto == '' || this.deuda.deudores.length == 0) {
+      M.toast({html: 'Concepto o deudores no seleccionados'});
     }
     else {
       this.adminService.addDeuda(this.deuda).subscribe(
         res => {
           M.toast({html: 'Dueda Agregada'});
+          this.getDeudores();
         },
         err => console.error(err)
       );

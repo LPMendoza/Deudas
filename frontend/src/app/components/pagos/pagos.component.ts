@@ -28,15 +28,6 @@ export class PagosComponent implements OnInit {
       this.getPagosFiltrados();
     }
   }
-/*
-  getPagos() {
-    this.pagosService.getPagos().subscribe(
-      res => {
-        this.pagos = res;
-      },
-      err => console.error(err)
-    )
-  }*/
 
   getPagosFiltrados() {
     console.log(this.filtro)
@@ -46,10 +37,6 @@ export class PagosComponent implements OnInit {
       },
       err => console.error(err)
     )
-  }
-
-  setMesNull() {
-    this.filtro.mes = null;
   }
 
 }

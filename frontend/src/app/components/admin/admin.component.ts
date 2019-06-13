@@ -124,7 +124,6 @@ export class AdminComponent implements OnInit {
       this.adminService.addDeuda(this.deuda).subscribe(
         res => {
           M.toast({html: 'Dueda Agregada'});
-          this.getDeudores();
         },
         err => console.error(err)
       );
